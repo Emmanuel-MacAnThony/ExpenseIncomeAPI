@@ -14,6 +14,7 @@ from pathlib import Path
 import os
 import json
 from django.core.exceptions import ImproperlyConfigured
+from datetime import timedelta
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 
@@ -65,6 +66,7 @@ INSTALLED_APPS = [
     #project app
     'authentication',
     'expenses',
+    'income',
 ]
 
 MIDDLEWARE = [
@@ -191,4 +193,9 @@ SWAGGER_SETTINGS = {
         }
         
     }
+}
+
+SIMPLE_JWT = {
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=10),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=1),
 }
